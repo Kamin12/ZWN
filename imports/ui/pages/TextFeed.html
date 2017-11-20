@@ -1,0 +1,7 @@
+<template name="TextFeed">
+<ul>
+  {{#each text in texts }}
+    {{>TextItemSmart (textArgs textTitle)}}
+  {{/each}}
+</ul>
+</template>

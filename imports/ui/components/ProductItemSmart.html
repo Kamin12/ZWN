@@ -1,0 +1,6 @@
+
+<template name="ProductItemSmart">
+  {{#each productTitle in productTitleArray}}
+{{>ProductItemReusable (prodArgs productTitle)}}
+{{/each}}
+</template>

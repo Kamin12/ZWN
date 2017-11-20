@@ -1,0 +1,7 @@
+<template name="VideoFeed">
+<ul>
+  {{#each video in videos }}
+    {{>VideoItemSmart (videoArgs videoTitle)}}
+  {{/each}}
+</ul>
+</template>
