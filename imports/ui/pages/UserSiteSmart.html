@@ -1,0 +1,85 @@
+<template name="Users_show_page">
+<div id="usersitecontainer">
+<a id="edit"> EDIT </a>
+{{#each memberName in memberNameArray}}
+{{> UserSite (memberArgs memberName)}}
+{{/each}}
+</div>
+</template>
+
+<template name="UserSite">
+<div id="info">
+<img src='' id="userimagemain">
+<a></a>
+<a id="membersitelocation"></a>
+<a></a>
+<div id="contact">
+<button id="messagez"> MESSAGE </button>
+<button id="connect" class=""> CONNECT </button>
+<button id="request" display=""> REQUEST </button>
+<div id="page">
+<button id="save"> SAVE </button>
+</div>
+</div>
+</div>
+</template>
+
+<template name="YouMenu">
+  {{#if NotLoggedIn}}
+  {{>join}}
+  {{else}}
+<div class="modal234" id="myyyModal">
+<div class="modal-contentyou">
+  <span class="closeyou"> CLOSE X </span>
+  <div id="youmenu">
+  <a class='site3' href="/:Membername"> YOUR SITE </a>
+  <br>
+  <a class='site4' href="/dashbaord"> DASHBOARD </a>
+  <br>
+  <a id='settings2'
+   href="/settings"> SETTINGS </a>
+  <br>
+  <a id='logout2' href=""> LOGOUT </a>
+  </div>
+</div>
+</div>
+{{/if}}
+</template>
+
+<template name="ProductWebsite">
+{{#each productWeb in productWebs}}
+{{> MembersProduct (productWebArgs productWeb)}}
+{{/each}}
+</template>
+
+<template name="AudioWebsite">
+{{#each productWeb in productWebs}}
+{{> MembersProduct (productWebArgs productWeb)}}
+{{/each}}
+</template>
+
+<template name="TextWebsite">
+{{#each productWeb in productWebs}}
+{{> MembersProduct (productWebArgs productWeb)}}
+{{/each}}
+</template>
+
+<template name="ImageWebsite">
+{{#each productWeb in productWebs}}
+{{> MembersProduct (productWebArgs productWeb)}}
+{{/each}}
+</template>
+
+<template name="VideoWebsite">
+{{#each productWeb in productWebs}}
+{{> MembersProduct (productWebArgs productWeb)}}
+{{/each}}
+</template>
+
+<template name="MembersProduct">
+  <img id="productthumb" href="/{{id}}" src="{{Images}}"/>
+  <div id="sweatshirtinfo">
+    <a href="/{{Member}}" id="account"> {{members}} </a>
+    <a href="/{{id}}" id="title"> {{title}} </a>
+  </div>
+</template>
