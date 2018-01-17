@@ -19,3 +19,18 @@ Meteor.publish('productStream', function (productTitle) {
       }
     });
  });
+
+ Meteor.publish('productFeed', function (productTitle) {
+   if (!this.userId) {
+   return this.ready();
+ }
+
+   return Products.findOne({productTitle}, {
+       fields: {
+         productmember: 1,
+         producttitle: 1,
+         textdate: 1,
+         texttext: 1
+       }
+     });
+  });

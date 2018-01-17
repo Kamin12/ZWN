@@ -139,11 +139,11 @@ template.collaborators = new ReactiveVar(false);
 
 });
 
-Template.CreateVideo.onRendered(function createlocationvar(){
-Session.set('rendered', true);
-var template = Template.instance();
-template.locationamount = new ReactiveVar(false);
-template.collaborators = new ReactiveVar(false);
+Template . CreateVideo . onRendered (function createlocationvar () {
+Session . set ( 'rendered' , true ) ;
+var template = Template . instance ( ) ;
+template . locationamount = new ReactiveVar( false );
+template . collaborators = new ReactiveVar( false );
 
 });
 
@@ -154,12 +154,12 @@ Template.CreateText.events({
 
   var instance = Template.instance();
 
-var textdata ={
-  texttitle : event.target.TitleText.value,
-  texttext : event.target.TextText.value,
-  textmember : event.target.MemberText.value,
-  textmedia : event.target.ImageFileText.value,
-  textdate : event.target.DateText.value
+var textdata = {
+  texttitle : event . target . TitleText . value ,
+  texttext : event . target . TextText . value ,
+  textmember : event . target . MemberText . value ,
+  textmedia : event . target . ImageFileText . value ,
+  textdate : event . target . DateText . value
 },
 pass = true,
 missingElement;
@@ -315,13 +315,13 @@ Template.Create.helpers({
   }
 });
 
-Template.CreateNavigator.helpers ({
+Template . CreateNavigator . helpers ({
 currentForm: function() {
   return Session.get('SelectedForm');
 }
 })
 
-Template.Create.onRendered(function() {
+Template. Create. onRendered( function() {
   Session.set('SelectedForm', '+++' );
   Meteor.setTimeout(() => {
     var modal2 = $('.modal3');
@@ -329,7 +329,7 @@ Template.Create.onRendered(function() {
   }, 500);
 });
 
-Template.Create.events({
+Template. Create. events({
   'click #AudioSelection': function (event, template) {
     Session.set('SelectedForm', 'Audio' );
     Blaze.render(Template.CreateAudio, template.$('#createnav').get(0));

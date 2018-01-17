@@ -1,4 +1,4 @@
-Template.StreamImage.onCreated( function(){
+Template.StreamImageSmart.onCreated( function(){
      this.getImageTitle = () => FlowRouter.getParam('imageTitle');
      this.autorun( () => {
      this.subscribe('imageStream', this.getImageTitle());
@@ -6,7 +6,7 @@ Template.StreamImage.onCreated( function(){
 });
 
 
-Template.StreamImage.helpers({
+Template.StreamImageSmart.helpers({
   imageContext: function(){
     const instance = Template.instance();
     const imageTitle = instance.getImageTitle();

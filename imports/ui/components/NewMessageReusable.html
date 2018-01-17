@@ -1,0 +1,12 @@
+
+<template name="NewMessage">
+  <div id="createnewmessage">
+  <form id="newmessage">
+  <a>{{currentUser}}</a>
+  <label id="Tooo">To</label><input id="tomessage" placeholder="Enter Username..."><a id="creategroup">CREATE GROUP</a>
+  <input id="newmessaging" placeholder="Begin Typing Message">
+  {{>uploadForm}}
+  <input id="attach" type="file" placeholder="ATTACH"><button type="submit" id="send2" placeholder="Enter Message..." href="/mymessages"> SEND </button>
+  </form>
+  </div>
+</template>

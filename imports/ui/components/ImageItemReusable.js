@@ -9,7 +9,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import './ImageItemReusable.html';
 
-Template.ImageItem.helpers({
+Template.ImageItemReusable.helpers({
 pathforImageStream: function (){
   var image = this;
   var params = {
@@ -21,11 +21,27 @@ pathforImageStream: function (){
 }
 });
 
-Template.Lists_show.onCreated(function listShowOnCreated() {
-  this.autorun(() => {
-    new SimpleSchema({
-      list: { type: Function },
-      todosReady: { type: Boolean },
-      todos: { type: Mongo.Cursor },
-    }).validate(Template.currentData());
-  });
+Template.ImageItemReusable.events({
+  'click #showlove ':function(){
+
+  },
+  'click #save':function(){
+session.set
+Meteor.call
+  },
+});
+
+
+
+  Template.ImageItemReusable.onCreated(function imageShowOnCreated() {
+
+
+    this.autorun(() => {
+      new SimpleSchema({
+        imagemember: { type: String },
+        imagetitle: { type: String },
+        imageimage: { type: Mongo.Cursor },
+      }).validate(Template.currentData());
+    });
+
+});

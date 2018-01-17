@@ -1,4 +1,4 @@
-Template.StreamAudio.onCreated( function(){
+Template.AudioStreamSmart.onCreated( function(){
      this.getAudioTitle = () => FlowRouter.getParam('audioTitle');
      this.autorun( () => {
      this.subscribe('audioStream', this.getAudioTitle());
@@ -6,7 +6,7 @@ Template.StreamAudio.onCreated( function(){
 });
 
 
-Template.StreamAudio.helpers({
+Template.AudioStreamSmart.helpers({
   audioContext: function(){
     const instance = Template.instance();
     const audioTitle = instance.getAudioTitle();
@@ -16,35 +16,3 @@ Template.StreamAudio.helpers({
    return Audio.findOne(audioTitle);
   }
 });
-
-
-Template.StreamAudio.helpers{(
-  Liked: function(){
-   if (!Likedby.indexOf({{this.MemberName, -1}})) {
-     return 'red';
-   }  else {
-     return 'white';
-   }
- },
- Bought: function(){
-  if (!Boughtby.indexOf({{this.MemberName, -1}})) {
-    return 'red';
-  }  else {
-    return 'white';
-  }
-},
-Saved: function(){
- if (!Savedby.indexOf({{this.MemberName, -1}})) {
-   return 'red';
- }  else {
-   return 'white';
- }
-},
-Shared: function(){
- if (!Sharedby.indexOf({{this.MemberName, -1}})) {
-   return 'red';
- }  else {
-   return 'white';
- }
-}
-)};

@@ -1,0 +1,18 @@
+<template name="StreamVideoReusable">
+<div id="VideoInformation">
+          <img src="{{profilePic.url}}" width="42" height="42" class="inline">
+          <p id="VideoCreator">{{video.videomember}}</p>
+          <p id="VideoTitle">{{video.videotitle}}</p>
+</div>
+    <div class="video_overlay">
+          <video width="605" controls autoplay class="video_display" id="media">
+            <source src="{{this.url}}" type="{{original.type}}">
+          </video>
+      </div>
+      <div id="VideoInformationTwo">
+        <p id="VideoViews">Test</p>
+        <p id="VideoMembers">Test</p>
+        <p id="VideoDate">Test</p>
+        <p id="VideoLocation"> Test</p>
+      </div>
+  </template>

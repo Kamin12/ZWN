@@ -1,21 +1,32 @@
+if (Meteor.isClient) {
+
+
+  import { Template } from 'meteor/templating';
+  import { FlowRouter } from 'meteor/kadira:flow-router';
+
+  import { Products } from '../../api/products/products.js';
+
+  import './Market.html';
+  import '../../api/Products/Server/ProductsPublications.js';
+  import '../../api/Products/Products.js';
+
+
+  // Components used inside the template
+
+  import '../components/ProductItemSmart.js';
+  import '../components/ProductItemSmart.html';
+
+
 Template.TextFeed.helpers({
-
-
-textArgs(textTitle) {
-
-const instance = Template.instance();
-var textTitle = instance.getTextTitle();
-
-   return {
-     text(){
-       return Texts.findOne(textTitle);
-     }
-   }
- },
-
  texts() {
    return Texts.find();
  }
-
-
 });
+
+
+Template.TextFeed.onCreated( function(){
+   this.autorun( () => {
+     this.subscribe('textFeed', this.getTextFeed());
+   });
+});
+}

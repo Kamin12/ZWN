@@ -10,7 +10,9 @@ Template.YourMessages.helpers({
      return current === name || current === `@${ name }` ? 'active' : false;
    }
  },
-messages: Messages.find();
+ }
+ }
+messages(){ Messages.find();
 }
-}
+
   });

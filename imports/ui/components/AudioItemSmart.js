@@ -1,12 +1,17 @@
-Template.AudioItemSmart.helpers({
-  pathForAudio: function() {
-    var audio = this;
-    var params = {
-        audioTitle: audio.audiotitle
-    };
-    var routeName = "audio";
-    var path = FlowRouter.path(routeName, params);
 
-    return path;
+
+
+Template.AudioItemSmart.helpers({
+audioTitleArray() {
+const instance = Template.instance();
+const audioTitle = instance.getAudioTitle();
+return Audio.findOne(audioTitle) ? [audioTitle] :[];
+},
+audioArgs (audioTitle) {
+  const instance = Template.instance();
+  return {
+    Audio.findOne(audioTitle);
   }
+}
+
 });

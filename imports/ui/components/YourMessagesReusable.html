@@ -1,0 +1,24 @@
+<template name="YourMessagesRU">
+
+<div id="conversation" class="conversationn" name="conversationn">
+
+</div>
+{{#each message in messages}}
+
+{{>Message message=message}}
+
+{{>Sidebar}}
+
+<a class="newmessage">NEW MESSAGE</a>
+
+<div class="message-input">
+   <input name="message" placeholder="Type your message here...">
+    <input id="attach" type="file" placeholder="ATTACH">
+    <button type="submit" id="send2" placeholder="Enter Message..." href="/mymessages"> SEND </button>
+ </div>
+
+{{else}}
+<p id="nomessages">You have no messages. </p>
+<p id="addmessages" href="/newmessage"> CREATE MESSAGE </p>
+{{/each}}
+</template>

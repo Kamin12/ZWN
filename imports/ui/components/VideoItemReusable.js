@@ -10,36 +10,34 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import './VideoItemReusable.html';
 
 
-Template.VideoItem.helpers({
+Template.VideoItemReusable.helpers({
 pathforVideoStream: function (){
   var video = this;
   var params = {
-    vtitle : video.videotitle
+    video : video.videotitle
   };
   var channel = "videos";
   var path = FlowRouter.path(channel, params);
   return path;
 }
-
-});
-
-Template.VideoItem.onCreated(function() {
-  this.autorun(() => {
-    new SimpleSchema({
-
-    }).validate(Template.currentData());
-  });
 });
 
   Template.VideoItemReusable.onCreated(function() {
-
-
     this.autorun(() => {
       new SimpleSchema({
         videomember: { type: String },
+        videovideo: { type: String },
         videotitle: { type: String },
         videoimage: { type: Mongo.Cursor },
       }).validate(Template.currentData());
     });
+});
 
+Template.VideoItemReusable.events({
+'click #save'(){
+
+},
+'click #showlove'(){
+
+}
 });

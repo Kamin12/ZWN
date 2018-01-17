@@ -1,5 +1,5 @@
 
-/*
+
 Template.ProductItemSmart.helpers({
 
 productTitleArray() {
@@ -12,6 +12,15 @@ prodArgs (productTitle) {
   return {
     Products.findOne(productTitle);
   }
+},
+pathforVideoStream: function (){
+  var video = this;
+  var params = {
+    vtitle : video.videotitle
+  };
+  var channel = "videos";
+  var path = FlowRouter.path(channel, params);
+  return path;
 }
 });
 
@@ -19,12 +28,5 @@ prodArgs (productTitle) {
 
 Template.ProductItemSmart.onCreated(function(){
 
-this.getProductTitle = () => FlowRouter.getParam('id');
-
-this.autorun(() => {
-this.subscribe('',this.getProductTitle());
-});
-
 
 });
-*/

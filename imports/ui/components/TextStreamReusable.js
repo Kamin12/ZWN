@@ -9,18 +9,9 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import './TextStreamReusable.html';
 
-Template.StreamTextReusable.helpers({
-  textContext: function(){
-    const instance = Template.instance();
-    const textTitle = instance.getTextTitle();
-    return Texts.findOne(textTitle) ? [textTitle] : [];
-  },
-  textArgs: function(textTitle){
-    return Texts.findOne(textTitle);
-  }
-});
 
-Template.TextStreamReusable.onCreated(function () {
+
+Template.StreamTextReusable.onCreated(function () {
   this.autorun(() => {
     new SimpleSchema({
       texttext: {type: String},
@@ -29,3 +20,17 @@ Template.TextStreamReusable.onCreated(function () {
       textdate: {type: Date},
     }).validate(Template.currentData());
   });
+
+
+
+
+    Template.StreamTextReusable.helpers({
+      textContext: function(){
+        const instance = Template.instance();
+        const textTitle = instance.getTextTitle();
+        return Texts.findOne(textTitle) ? [textTitle] : [];
+      },
+      textArgs: function(videoTitle){
+      return Texts.findOne(textTitle);
+      }
+    });

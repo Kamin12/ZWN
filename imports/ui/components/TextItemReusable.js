@@ -9,7 +9,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import './TextItemReusable.html';
 
-Template.TextItem.helpers({
+Template.TextItemReusable.helpers({
 pathforTextStream: function (){
   var text = this;
   var params = {
@@ -21,6 +21,9 @@ pathforTextStream: function (){
 }
 });
 
+
+
+
 Template.TextItemReusable.onCreated(function () {
   this.autorun(() => {
     new SimpleSchema({
@@ -30,3 +33,15 @@ Template.TextItemReusable.onCreated(function () {
       textdate: {type: Date},
     }).validate(Template.currentData());
   });
+});
+
+Template.TextItemReusable.events{(
+  'click #save': (){
+
+
+  },
+'click #showlove': (){
+
+},
+'click '
+});

@@ -1,6 +1,6 @@
 
 <template name="ProductItemSmart">
-  {{#each productTitle in productTitleArray}}
-{{>ProductItemReusable (prodArgs productTitle)}}
+  {{#each product in productTitleArray}}
+{{>ProductItemReusable (prodArgs product)}}
 {{/each}}
 </template>

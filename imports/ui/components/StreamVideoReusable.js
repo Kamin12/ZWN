@@ -7,9 +7,9 @@ import { $ } from 'meteor/jquery';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-import './VideoStreamReusable.html';
+import './StreamVideoReusable.html';
 
-Template.VideoStreamReusable.onCreated(function videoStreamOnCreated() {
+Template.StreamVideoReusable.onCreated(function videoStreamOnCreated() {
   this.autorun(() => {
     new SimpleSchema({
       videotext: {type: String},
@@ -18,4 +18,13 @@ Template.VideoStreamReusable.onCreated(function videoStreamOnCreated() {
       videoimage: {type: Object},
       videodate: {type: Date},
     }).validate(Template.currentData());
+  });
+)};
+
+
+  Template.StreamVideoReusable.onCreated( function(){
+     this.getVideoTitle = () => FlowRouter.getParam('vtitle');
+     this.autorun( () => {
+       this.subscribe('videoStream', this.getVideoTitle());
+     });
   });

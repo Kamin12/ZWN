@@ -1,4 +1,7 @@
 if (Meteor.isClient) {
+
+
+
 Template.Users_show_page.onCreated(function(){
 
   this.getMemberName = () => FlowRouter.getParam('Membername');
@@ -7,8 +10,8 @@ Template.Users_show_page.onCreated(function(){
   this.subscribe('userdata', {Membername: this.getMemberName()});
 });
 
-
 this.userconnection = new ReactiveDict();
+
 this.userconnection.setDefault({
   editing: false,
   connected: false,

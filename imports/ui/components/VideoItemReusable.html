@@ -1,0 +1,11 @@
+<template name="VideoItemReusable">
+    <div id="image_div">
+        <div class="music_info_image" href="/{{pathforVideoStream}}"></div>{{video.videoimage}}
+        <div class="like_button_dark" style="margin-left:30%;"><p class="music_info_buttons_text"> LIKE </p></div>
+        <div class="save_button_dark"><p class="music_info_buttons_text"> SAVE </p></div>
+        <div class="share_button_dark"><p class="music_info_buttons_text"> SHARE </p></div>
+        <div class="song_title" style="float:left;" href="/{{pathforVideoStream}}"><p>{{video.videotitle}}</p></div>
+        <div class="song_title" style="float:left;"><p>{{video.videovideo}}</p></div>
+        <div class="creator_name" colspan="4"><p>{{video.videomember}}</p> </div>
+      </div>
+</template>

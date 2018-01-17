@@ -17,32 +17,13 @@ import '../components/ProductItemSmart.html';
 
 
 Template.Market.helpers({
-
-
-prodArgs(productTitle) {
-
-const instance = Template.instance();
-var productTitle = instance.getProductTitle();
-
-   return {
-     product(){
-       return Products.findOne(productTitle);
-     }
-   }
- },
-
  products() {
    return Products.find();
  }
-
-
 });
 
 Template.Market.onCreated( function(){
 
-const instance = Template.instance();
-this.getProductTitle = () => FlowRouter.getParam('producttitle');
-var productTitle = this.getProductTitle();
 
 
 this.productpurchased = new ReactiveVar(false);

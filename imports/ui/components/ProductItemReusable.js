@@ -9,35 +9,37 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import './ProductItemReusable.html';
 
-Template.ProductItemSmart.helpers({
-
-
-
-
-pathforProduct: function (){
-
-  var product = this;
-  var params = {
-    product : this.producttitle,
-  };
-  var channel = "products";
-  var path = FlowRouter.path(channel, params);
-  return path;
-}
-
+Template.ProductItemReusable.helpers({
+  pathforProductStream: function (){
+    var product = this;
+    var params = {
+      product : product.producttitle
+    };
+    var channel = "product";
+    var path = FlowRouter.path(channel, params);
+    return path;
+  }
 });
 
-Template.Product.events ({
+
+  Template.ProductItemReusable.onCreated( function(){
+     this.getVideoTitle = () => FlowRouter.getParam('vtitle');
+     this.autorun( () => {
+       this.subscribe('videoStream', this.getVideoTitle());
+     });
+  });
 
 
+
+
+
+
+Template.ProductItemReusable.events ({
   'click #buydarkfeed' (event, template) {
    var item = this;
    Session.set('selectedItem', 'this.title');
    Blaze.render(Template.paymentModal, document.body);
    }
-
-
-
 });
 
 Template.ProductItemReusable.onCreated(function() {
@@ -48,7 +50,4 @@ Template.ProductItemReusable.onCreated(function() {
       productimage: { type: Mongo.Cursor },
     }).validate(Template.currentData());
   });
-
-
-
 });

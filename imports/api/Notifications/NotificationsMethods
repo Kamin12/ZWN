@@ -1,0 +1,15 @@
+
+
+
+const Audioinsert = new ValidatedMethod({
+  name: 'Audio.methods.insert',
+  validate:new SimpleSchema({
+      audiotitle: { type: String },
+      audiotext: { type: String }
+    }).validator(),
+    run({audiotitle, audiotext}) {
+	Audio.insert({
+
+	});
+}
+});

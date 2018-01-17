@@ -9,7 +9,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import './AudioItemReusable.html';
 
-Template.AudioItem.onCreated(function listShowOnCreated() {
+Template.AudioItemResuable.onCreated(function listShowOnCreated() {
   this.autorun(() => {
     new SimpleSchema({
       audioaudioblz: {type: [Object]},
@@ -17,4 +17,31 @@ Template.AudioItem.onCreated(function listShowOnCreated() {
       audiotitleblz: {type: String},
       audiotextblz: {type: String}
     }).validate(Template.currentData());
+  })
+});
+
+
+
+  Template.AudioItemReusable.events({
+    'click #showlove':function(){
+
+Meteor.call(' ', );
+    },
+    'click #save':function(){
+
+Meteor.call('');
+    }
+  });
+
+
+  Template.AudioItemReusable.helpers({
+  pathforAudioStream: function (){
+    var audio = this;
+    var params = {
+      audio : audio.audiotitle
+    };
+    var channel = "audio";
+    var path = FlowRouter.path(channel, params);
+    return path;
+  }
   });

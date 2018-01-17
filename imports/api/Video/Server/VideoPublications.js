@@ -10,7 +10,7 @@ Meteor.publish('videoStream', function (videoTitle) {
   return this.ready();
 }
 
-  return Video.findOne({videoTitle}, {
+  return Videos.findOne({videoTitle}, {
       fields: {
         videomember: 1,
         videomembers: 1,
@@ -19,4 +19,21 @@ Meteor.publish('videoStream', function (videoTitle) {
         videotext: 1
      }
     });
+});
+
+
+Meteor.publish('videoFeed', function (imageTitle) {
+  if (!this.userId) {
+  return this.ready();
+}
+
+  return Videos.findOne({imageTitle}, {
+    fields: {
+      imagemember: 1,
+      imagemembers: 1,
+      imagetitle: 1,
+      imagedate: 1,
+      imagetext: 1
+    }
+  });
 });
